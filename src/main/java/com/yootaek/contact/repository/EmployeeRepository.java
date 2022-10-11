@@ -8,4 +8,5 @@ public interface EmployeeRepository {
     List<Employee> findAll();
     Employee findByName(String name);
     Employee save(Employee employee);
+    void saveAll(List<Employee> employees);
 }
