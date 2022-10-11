@@ -25,15 +25,14 @@ import java.util.List;
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
 
-    public void saveEmployees(List<Employee> employees) {
+    public List<Employee> saveEmployees(List<Employee> employees) {
         if (employees.size() == 0)
-            return;
+            return null;
 
-        List<Employee> result = employeeRepository.saveAll(employees);
-        System.out.println(result.size());
+        return employeeRepository.saveAll(employees);
     }
 
-    public void saveEmployeesWithCsv(String csv) throws ParseException {
+    public List<Employee> saveEmployeesWithCsv(String csv) throws ParseException {
         DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
         ArrayList<Employee> employees = new ArrayList<>();
 
@@ -44,27 +43,30 @@ public class EmployeeService {
             if (items.length != 4)
                 break;
 
-            employees.add(new Employee(items[0], items[1], items[2], sdFormat.parse(items[3])));
+            employees.add(new Employee(items[0].trim(), items[1].trim(), items[2].trim(), sdFormat.parse(items[3].trim())));
         }
 
-        saveEmployees(employees);
+        return saveEmployees(employees);
     }
 
-    public void saveEmployeesWithFile(MultipartFile file) throws IOException, ParseException {
+    public List<Employee> saveEmployeesWithFile(MultipartFile file) throws IOException, ParseException {
+        List<Employee> employees = null;
         String originalFilename = file.getOriginalFilename();
         String ext = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
         switch (ext) {
             case "json":
                 String jsonStr = new String(file.getBytes(), StandardCharsets.UTF_8);
                 ObjectMapper mapper = new ObjectMapper();
-                saveEmployees(Arrays.asList(mapper.readValue(jsonStr, Employee[].class)));
+                employees = saveEmployees(Arrays.asList(mapper.readValue(jsonStr, Employee[].class)));
                 break;
             case "csv":
-                saveEmployeesWithCsv(new String(file.getBytes(), StandardCharsets.UTF_8));
+                employees = saveEmployeesWithCsv(new String(file.getBytes(), StandardCharsets.UTF_8));
                 break;
             default:
                 break;
         }
+
+        return employees;
     }
 
     public List<Employee> selectAllEmployee() {
