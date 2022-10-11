@@ -1,23 +1,5 @@
-{\rtf1\ansi\ansicpg949\cocoartf2636
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset129 AppleMyungjo;}
-{\colortbl;\red255\green255\blue255;\red255\green255\blue254;\red0\green0\blue0;\red144\green1\blue18;
-\red9\green60\blue148;}
-{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c99608;\cssrgb\c0\c0\c0;\cssrgb\c63922\c8235\c8235;
-\cssrgb\c1569\c31765\c64706;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
-
-\f0\fs24 \cf0 \cb2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec3 [\cb1 \
-\cb2     \{\cf4 \strokec4 "name"\cf0 \strokec3 :\cf5 \strokec5 "
-\f1 \'c0\'cc\'b9\'ab\'b1\'e2
-\f0 "\cf0 \strokec3 , \cf4 \strokec4 "email"\cf0 \strokec3 :\cf5 \strokec5 "weapon@clovf.com"\cf0 \strokec3 , \cf4 \strokec4 "tel"\cf0 \strokec3 :\cf5 \strokec5 "010-1111-2424"\cf0 \strokec3 ,\cf4 \strokec4 "joined"\cf0 \strokec3 :\cf5 \strokec5 "2020-01-05"\cf0 \strokec3 \},\cb1 \
-\cb2     \{\cf4 \strokec4 "name"\cf0 \strokec3 :\cf5 \strokec5 "
-\f1 \'c6\'c7\'ba\'ea\'c0\'cc
-\f0 "\cf0 \strokec3 , \cf4 \strokec4 "email"\cf0 \strokec3 :\cf5 \strokec5 "panv@clovf.com"\cf0 \strokec3 , \cf4 \strokec4 "tel"\cf0 \strokec3 :\cf5 \strokec5 "010-3535-7979"\cf0 \strokec3 ,\cf4 \strokec4 "joined"\cf0 \strokec3 :\cf5 \strokec5 "2013-07-01"\cf0 \strokec3  \},\cb1 \
-\cb2     \{\cf4 \strokec4 "name"\cf0 \strokec3 :\cf5 \strokec5 "
-\f1 \'c2\'f7\'c8\'a3\'bb\'a7
-\f0 "\cf0 \strokec3 , \cf4 \strokec4 "email"\cf0 \strokec3 :\cf5 \strokec5 "hobread@clovf.com"\cf0 \strokec3 , \cf4 \strokec4 "tel"\cf0 \strokec3 :\cf5 \strokec5 "010-8531-7942"\cf0 \strokec3 ,\cf4 \strokec4 "joined"\cf0 \strokec3 :\cf5 \strokec5 "2019-12-05"\cf0 \strokec3 \}\cb1 \
-\cb2 ]\cb1 \
-}
+[
+{"name":"이무기", "email":"weapon@clovf.com", "tel":"010-1111-2424","joined":"2020-01-05"},
+{"name":"판브이", "email":"panv@clovf.com", "tel":"010-3535-7979","joined":"2013-07-01" },
+{"name":"차호빵", "email":"hobread@clovf.com", "tel":"010-8531-7942","joined":"2019-12-05"}
+]
