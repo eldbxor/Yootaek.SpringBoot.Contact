@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.sound.midi.SysexMessage;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
@@ -28,7 +29,8 @@ public class EmployeeService {
         if (employees.size() == 0)
             return;
 
-        employeeRepository.saveAll(employees);
+        List<Employee> result = employeeRepository.saveAll(employees);
+        System.out.println(result.size());
     }
 
     public void saveEmployeesWithCsv(String csv) throws ParseException {
@@ -63,5 +65,13 @@ public class EmployeeService {
             default:
                 break;
         }
+    }
+
+    public List<Employee> selectAllEmployee() {
+        return employeeRepository.findAll();
+    }
+
+    public Employee selectEmployee(String name) {
+        return employeeRepository.findByName(name);
     }
 }

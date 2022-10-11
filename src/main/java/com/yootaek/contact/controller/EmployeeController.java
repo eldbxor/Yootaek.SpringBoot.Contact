@@ -27,15 +27,13 @@ public class EmployeeController {
     @GetMapping("")
     @ResponseBody
     public ResponseEntity<List<Employee>> getEmployees() {
-        List<Employee> employees = new ArrayList<>();
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.selectAllEmployee(), HttpStatus.OK);
     }
 
     @GetMapping("/{name}")
     @ResponseBody
     public ResponseEntity<Employee> getEmployee(@PathVariable String name) {
-        Employee employee = new Employee("홍길동", "", "", new Date());
-        return new ResponseEntity<>(employee, HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.selectEmployee(name), HttpStatus.OK);
     }
 
     @PostMapping(value = "", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
