@@ -1,6 +1,8 @@
 package com.yootaek.contact.controller;
 
 import com.yootaek.contact.domain.Employee;
+import com.yootaek.contact.exception.ApiException;
+import com.yootaek.contact.exception.ExceptionEnum;
 import com.yootaek.contact.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -40,17 +42,14 @@ public class EmployeeController {
     public ResponseEntity<Void> addEmployee(@RequestPart @Nullable MultipartFile file,
                                             @RequestPart @Nullable List<Employee> json,
                                             @RequestPart @Nullable String csv) {
-        try {
-            if (file != null && !file.isEmpty())
-                employeeService.saveEmployeesWithFile(file);
-            else if (json != null)
-                employeeService.saveEmployees(json);
-            else if (StringUtils.hasText(csv))
-                employeeService.saveEmployeesWithCsv(csv);
-        }
-        catch (ParseException | IOException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        if (file != null && !file.isEmpty())
+            employeeService.saveEmployeesWithFile(file);
+        else if (json != null)
+            employeeService.saveEmployees(json);
+        else if (StringUtils.hasText(csv))
+            employeeService.saveEmployeesWithCsv(csv);
+        else
+            throw new ApiException(ExceptionEnum.INVALID_PARAMETER);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

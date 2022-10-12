@@ -47,11 +47,7 @@ public class EmployeeServiceTest {
                 박영희, matilda@clovf.com, 010-8765-4321,2021-04-28
                 홍길동, kildong.hong@clovf.com, 010-1234-5678,2015-08-15""";
         List<Employee> employees = null;
-        try {
-            employees = employeeService.saveEmployeesWithCsv(csvStr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        employees = employeeService.saveEmployeesWithCsv(csvStr);
 
         assertThat(employees).isNotNull();
         assertThat(employees.size()).isEqualTo(3);
